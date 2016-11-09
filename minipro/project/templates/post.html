@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+<<!DOCTYPE html>
+<html>
+<head>
+	<title>BLOGSPOT</title>
+	<style type="text/css">
+
+	</style>
+</head>
+<body>
+
+</body>
+</html>
+
+{% block content %}
+
+<h2><a href="/project/{{login.id}}">{{ login.title }}</a></h2>
+
+<div class="post_meta">
+  on {{ login.created }}
+</div>
+<div class="post_by">
+  by {{ login.author }}
+</div>
+
+<div class="post_body">
+  {{ login.body|safe|linebreaks }}
+</div>
+
+<div class="tags">
+  {% for tag in login.tags.all %}
+  <a href="/project/tag/{{tag}}">{{tag}}</a>
+  {% if not forloop.last %}, {% endif %}
+  {% endfor %}
+</div>
+<center>
+<a href="/project/{{tag}}"{{tag}}><input type="button" value="BLOGS" style="width:150px;height:40px;border-radius:25px;background-color:black;color:silver"></a>
+</center>
+{% endblock %}

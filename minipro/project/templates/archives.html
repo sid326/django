@@ -1,0 +1,15 @@
+<center>
+{% extends "base.html" %}
+</center>
+{% block content %}
+
+{% for post in object_list %}
+
+<p>{{ post.created|date:"Y-m-d" }}: <a href="/project/{{post.id}}">{{ post.title }}</a></p>
+
+
+{% endfor %}
+<center>
+<a href="/project/{{tag}}"{{tag}}><input type="button" value="BLOGS" style="width:150px;height:40px;border-radius:25px;background-color:black;color:silver"></a>
+</center>
+{% endblock %}
